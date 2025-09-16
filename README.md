@@ -1,4 +1,4 @@
-````markdown
+
 # Weather App
 
 A real-time weather dashboard built with **Flask** and **OpenWeather API**. This app automatically detects the user's location using their IP address and displays:
@@ -27,7 +27,6 @@ A real-time weather dashboard built with **Flask** and **OpenWeather API**. This
 1. Clone the repository:
 ```bash
 git clone https://github.com/your-username/weather-app.git
-````
 
 2. Navigate into the directory:
 
