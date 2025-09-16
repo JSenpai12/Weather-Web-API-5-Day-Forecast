@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</head>
+<body>
+<div class="weather-app">
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-info">
+                <h1>Weather App</h1>
+                <div class="location">
+                    <svg class="location-icon icon" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <span class="city-title">New York, NY</span>
+                </div>
+            </div>
+            <button class="refresh-btn">
+                <svg class="refresh-icon icon" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+                    <path d="M21 3v5h-5"/>
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+                    <path d="M3 21v-5h5"/>
+                </svg>
+                Refresh
+            </button>
+        </div>
+
+        <div class="main-grid">
+            <!-- Main Weather Display -->
+            <div>
+                <div class="card large">
+                    <div class="current-weather">
+                        <img class="weather-icon icon" id="forecastIcon0">
+                        <div>
+                            <span class="temperature">22°</span>
+                            <span class="temp-unit">C</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <h2 class="condition-title">Partly Cloudy</h2>
+                        <p class="condition-desc">A mix of sun and clouds</p>
+                        <p class="feels-like">Feels like 25°C</p>
+                    </div>
+                </div>
+
+                <!-- Weather Details -->
+                <div class="card weather-details">
+                    <div class="card-header">
+                        <h3 class="card-title">Weather Details</h3>
+                    </div>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <svg class="detail-icon icon" viewBox="0 0 24 24" fill="none">
+                                <path d="M2 12c0 5.523 4.477 10 10 10s10-4.477 10-10S17.523 2 12 2 2 6.477 2 12z"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            <div>
+                                <div class="detail-label">Humidity</div>
+                                <div class="detail-value" id="humid">65%</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <svg class="detail-icon icon" viewBox="0 0 24 24" fill="none">
+                                <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/>
+                                <path d="M9.6 4.6A2 2 0 1 1 11 8H2"/>
+                                <path d="M12.6 19.4A2 2 0 1 0 14 16H2"/>
+                            </svg>
+                            <div>
+                                <div class="detail-label">Wind Speed</div>
+                                <div class="detail-value" id="windspeed">12 km/h</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <svg class="detail-icon icon" viewBox="0 0 24 24" fill="none">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                            <div>
+                                <div class="detail-label">Visibility</div>
+                                <div class="detail-value" id="visibility">10 km</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <svg class="detail-icon icon" viewBox="0 0 24 24" fill="none">
+                                <circle cx="12" cy="12" r="4"/>
+                                <path d="M12 2v2"/>
+                                <path d="M12 20v2"/>
+                                <path d="M4.93 4.93l1.41 1.41"/>
+                                <path d="M17.66 17.66l1.41 1.41"/>
+                                <path d="M2 12h2"/>
+                                <path d="M20 12h2"/>
+                                <path d="M6.34 17.66l-1.41 1.41"/>
+                                <path d="M19.07 4.93l-1.41 1.41"/>
+                            </svg>
+                            <div>
+                                <div class="detail-label">Max Temp</div>
+                                <div class="detail-value" id="maxtemp">6</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5-Day Forecast -->
+            <div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">5-Day Forecast</h3>
+                    </div>
+                    <div>
+                        <div class="forecast-item">
+                            <div class="forecast-left">
+                               <img id="forecastIcon1" class="forecast-icon"/>
+                                <div>
+                                    <div class="forecast-day">Today</div>
+                                    <div class="forecast-condition" id="forecastCondition1">Partly Cloudy</div>
+                                </div>
+                            </div>
+                            <div class="forecast-temps">
+                                <div class="forecast-high" id="forecastHigh1">24°</div>
+                                <div class="forecast-low" id="forecastLow1">18°</div>
+                            </div>
+                        </div>
+                        <div class="forecast-item">
+                            <div class="forecast-left">
+                                <img id="forecastIcon2" class="forecast-icon"/>
+                                <div>
+                                    <div class="forecast-day" id="forecastDay2">Tomorrow</div>
+                                    <div class="forecast-condition" id="forecastCondition2">Sunny</div>
+                                </div>
+                            </div>
+                            <div class="forecast-temps">
+                                <div class="forecast-high" id="forecastHigh2">26°</div>
+                                <div class="forecast-low" id="forecastLow2">20°</div>
+                            </div>
+                        </div>
+                        <div class="forecast-item">
+                            <div class="forecast-left">
+                                <img id="forecastIcon3" class="forecast-icon"/>
+                                <div>
+                                    <div class="forecast-day" id="forecastDay3">Wednesday</div>
+                                    <div class="forecast-condition" id="forecastCondition3">Light Rain</div>
+                                </div>
+                            </div>
+                            <div class="forecast-temps">
+                                <div class="forecast-high" id="forecastHigh3">23°</div>
+                                <div class="forecast-low" id="forecastLow3">17°</div>
+                            </div>
+                        </div>
+                        <div class="forecast-item">
+                            <div class="forecast-left">
+                                <img id="forecastIcon4" class="forecast-icon"/>
+                                <div>
+                                    <div class="forecast-day" id="forecastDay4">Thursday</div>
+                                    <div class="forecast-condition" id="forecastCondition4">Cloudy</div>
+                                </div>
+                            </div>
+                            <div class="forecast-temps">
+                                <div class="forecast-high" id="forecastHigh4">21°</div>
+                                <div class="forecast-low" id="forecastLow4">15°</div>
+                            </div>
+                        </div>
+                        <div class="forecast-item">
+                            <div class="forecast-left">
+                                <img id="forecastIcon5" class="forecast-icon"/>
+                                <div>
+                                    <div class="forecast-day" id="forecastDay5">Friday</div>
+                                    <div class="forecast-condition" id="forecastCondition5">Sunny</div>
+                                </div>
+                            </div>
+                            <div class="forecast-temps">
+                                <div class="forecast-high" id="forecastHigh5">25°</div>
+                                <div class="forecast-low" id="forecastLow5">19°</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Info -->
+                <div class="card update-info">
+                    <div class="update-label">Last Updated</div>
+                    <div class="update-date">September 13, 2025</div>
+                    <div class="update-time">2:30 PM</div>
+                    <span class="badge">Live Data</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
