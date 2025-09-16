@@ -29,7 +29,7 @@ A real-time weather dashboard built with **Flask** and **OpenWeather API**. This
 1. Clone the repository:
 ```bash
 git clone https://github.com/JSenpai12/weather-app.git
-
+```
 
 
 
