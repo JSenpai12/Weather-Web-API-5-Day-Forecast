@@ -6,7 +6,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-api_key = "a2305b483e74316e4ff11f03f0d854b6"
+api_key = "API_KEY_HERE"
 
 
 @app.route("/")
@@ -87,4 +87,5 @@ def forecastFunction():
     })
 
 if __name__ == '__main__':
+
     app.run(debug=True, use_reloader=False)
