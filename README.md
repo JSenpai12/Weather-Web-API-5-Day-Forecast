@@ -1,15 +1,3 @@
-Here’s a clean, professional, and informative description + README for your weather app project. I’ll make it suitable for GitHub so that anyone visiting your repo can understand it quickly.
-
----
-
-## **GitHub Repository Description**
-
-**Weather App (Flask + OpenWeather API)** – A real-time weather dashboard that automatically detects your location using your IP address and shows the current weather and 5-day forecast. Built with Flask for the backend and vanilla JavaScript for the frontend.
-
----
-
-## **README.md Example**
-
 ````markdown
 # Weather App
 
